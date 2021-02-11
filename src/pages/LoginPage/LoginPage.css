@@ -1,0 +1,107 @@
+.uppertext{
+    padding-top: 5em;
+    color: #000000;
+    font-size: 22px;
+
+}
+
+.logotext{
+    color: #000000;
+    padding-top: 1em;
+    font-size: 32px;
+    font-weight: 500;
+    padding-bottom: calc(30vh - 70px);
+
+}
+
+.upperlogginbutton{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+}
+
+.loginbutton{
+
+    color: #000000;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    width: 235px;
+    align-items: center;
+    height: 40px;
+    border-radius: 27px;
+    box-shadow: 5px 8px 10px #b4b4b4;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none;
+}
+
+.loginbutton:active{
+    box-shadow: 5px 8px 4px #b4b4b4;
+}
+
+.loginbutton_icon{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.loginbutton_text{
+    padding-right: 15px;
+}
+
+
+@media(max-width: 360px){
+    .logotext{
+        color: #000000;
+        padding-top: 1em;
+        font-size: 24px;
+        font-weight: 500;
+
+
+    }
+}
+
+
+@media (max-width: 511px){
+    .content{
+        width: calc(100% - 32px);
+        background-color: #E9E9E9;
+        min-height: calc(100vh - 70px - 32px);
+        border-radius: 15px;
+    }
+
+    .upper_content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: calc(100vh - 70px);
+
+    }
+}
+
+
+
+@media (min-width: 512px){
+    .upper_content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: calc(100vh - 70px);
+
+    }
+
+    .content{
+        background-color: #E9E9E9;
+        height: calc(100% - 70px);
+        max-height: 600px;
+        width: 480px;
+        border-radius: 30px;
+    }
+}

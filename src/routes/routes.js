@@ -24,21 +24,33 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
     console.log(store.state)
+    console.log( sessionStorage.getItem("loggedIn"))
 
     if (to.meta.need_auth === true){
-
-        if (store.state.loggedIn === true || localStorage.getItem("loggedIn") === "true"){
+        if (store.state.loggedIn === true || sessionStorage.getItem("loggedIn") === "true"){
             console.log("Autenticado")
             next();
         }else{
             next("/");
         }
     }else{
+
+        if(from.path === "/"){
+            if (store.state.loggedIn === true || sessionStorage.getItem("loggedIn") === "true"){
+                console.log("Autenticado 2")
+                next("/home")
+            }
+        }
+
         next()
     }
 
 
 
 });
+
+router.afterEach((to, from) => {
+    console.log(to, from)
+})
 
 export default router

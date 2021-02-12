@@ -9,6 +9,13 @@
 export default {
   name: 'App',
   components: {
+  },
+  mounted() {
+    if(sessionStorage.getItem("loggedIn") === "true"){
+      this.$store.commit("login", {token: localStorage.getItem("token")})
+    }else{
+      this.$store.commit("logout")
+    }
   }
 }
 </script>

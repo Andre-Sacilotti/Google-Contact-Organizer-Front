@@ -1,3 +1,5 @@
-<div class="body">
-    a
-</div>
+<transition name="fade">
+    <div class="body" v-if="show">
+        {{show}}
+    </div>
+</transition>

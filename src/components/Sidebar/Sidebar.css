@@ -1,7 +1,36 @@
+@keyframes slideSideBar {
+    0%{
+        transform: translateX(0);
+    }
+
+    100%{
+        transform: translateX(60vw);
+    }
+}
+
+@keyframes slideSideBarOut {
+    0%{
+        transform: translateX(60vw);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+}
+
 .body{
     position: absolute;
     height: calc(100vh - 70px);
     width: 60vw;
     background-color: #E9E9E9;
     box-shadow: 16px 4px 32px #00000025;
+    left: -60vw;
+    animation: slideSideBar 0.5s forwards;
+}
+
+.fade-leave-active {
+    animation: slideSideBarOut 0.5s forwards;
+}
+.fade-leave-to /* .fade-leave-active em versões anteriores a 2.1.8 */ {
+    animation: slideSideBarOut 0.5s forwards;
 }

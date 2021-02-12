@@ -1,3 +1,7 @@
 export default {
-    name: "Sidebar"
+    name: "Sidebar",
+    props:[
+        'show'
+]
+
 }

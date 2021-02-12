@@ -26,7 +26,8 @@ router.beforeEach((to, from, next) => {
     console.log(store.state)
 
     if (to.meta.need_auth === true){
-        if (store.state.loggedIn === true){
+
+        if (store.state.loggedIn === true || localStorage.getItem("loggedIn") === "true"){
             console.log("Autenticado")
             next();
         }else{

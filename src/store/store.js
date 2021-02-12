@@ -13,6 +13,15 @@ const store = new Vuex.Store({
         login(state, payload){
             state.loggedIn = true
             state.token = payload.token;
+            localStorage.setItem("loggedIn", "true")
+            localStorage.setItem("token", payload.token)
+        },
+
+        logout(state){
+            state.loggedIn = false
+            state.token = "";
+            localStorage.setItem("loggedIn", "false")
+            localStorage.setItem("token", "")
         }
     }
 })

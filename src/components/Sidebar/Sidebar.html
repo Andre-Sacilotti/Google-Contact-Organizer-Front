@@ -1,5 +1,49 @@
 <transition name="fade">
     <div class="body" v-if="show">
-        {{show}}
+        <div class="topcontent">
+
+            <ul class="sidebarlist">
+                <li>
+                    <div class="contentItem">
+                        <div class="icon">
+                            <font-awesome-icon class="icon" icon="home" />
+                        </div>
+                        Home
+                    </div>
+                </li>
+                <li class="contentItemMobileExclusive">
+                    <div class="contentItemMobileExclusive contentItem">
+                        <div class="icon">
+                            <font-awesome-icon class="icon" icon="chart-pie" />
+                        </div>
+                        Dashboard
+                    </div>
+                </li>
+                <li>
+                    <div class="contentItem">
+
+                        <div class="icon">
+                            <font-awesome-icon class="icon" icon="file-pdf" />
+                        </div>
+                        Report
+                    </div>
+                </li>
+            </ul>
+
+
+
+
+        </div>
+        <div class="bottomcontent">
+            <hr class="solid" />
+            <div class="contentItem">
+
+
+                <div class="icon">
+                    <font-awesome-icon class="icon" icon="bars" />
+                </div>
+                Logout
+            </div>
+        </div>
     </div>
 </transition>

@@ -2,19 +2,32 @@ import Vue from 'vue'
 import App from './App.vue'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faHome, faFilePdf, faChartPie } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-
+import GAuth from 'vue-google-oauth2-gapi'
 import GoogleSignInButton from 'vue-google-signin-button-directive'
 import VueRouter from 'vue-router'
 
 import store from "./store/store.js"
 import router from "./routes/routes.js"
 
+
+const gauthOption = {
+  clientId: process.env.VUE_APP_CLIENT_ID + ".apps.googleusercontent.com",
+  scope: "https://www.googleapis.com/auth/contacts.readonly https://www.googleapis.com/auth/contacts.other.readonly profile",
+  prompt: 'select_account'
+}
+
+Vue.use(GAuth, gauthOption)
 Vue.use(VueRouter)
+
 library.add(faBars)
+library.add(faHome)
+library.add(faFilePdf)
+library.add(faChartPie)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+
 Vue.config.productionTip = false
 
 

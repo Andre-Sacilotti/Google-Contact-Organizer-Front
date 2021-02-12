@@ -3,11 +3,11 @@
     <div
             v-bind:class="{ hamburgermenu: is_login === 'false', hamburgermenu_not_displayed: is_login === 'true'}"
             @click="handlerSideBar">
-        <font-awesome-icon icon="bars" size="2x" />
+        <font-awesome-icon class="icon" icon="bars" size="2x" />
     </div>
 
         <div class ="central-text">
-            Super OrgContact {{is_login}}
+            Super OrgContact
         </div>
 
     <div v-bind:class="{ profilepic: is_login === 'false', profilepic_not_displayed: is_login === 'true'}">

@@ -1,9 +1,11 @@
 import Navbar from '../../components/Navbar/Navbar.vue'
+import ContentDisplay from "@/components/ContentDisplay/ContentDisplay";
 
 export default {
     name: "LoginPage",
     components: {
-        Navbar
+        Navbar,
+        ContentDisplay
     },
     data : () => (
         {
@@ -11,15 +13,14 @@ export default {
         }
     ),
     methods: {
-        OnGoogleAuthSuccess(idToken){
-            this.$store.commit("login", {token: idToken})
-            this.$router.push({
-                path: "/home"
-            })
+        handlerGoogleButton(){
+            this.$gAuth.signIn(function (user) {
+                //on success
+                console.log(user)
 
-        },
-        OnGoogleAuthFail(error){
-            console.log(error)
+            }, function (error) {
+                console.log(error)
+            })
         }
     }
 

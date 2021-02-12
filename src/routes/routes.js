@@ -27,6 +27,7 @@ router.beforeEach((to, from, next) => {
     console.log( sessionStorage.getItem("loggedIn"))
 
     if (to.meta.need_auth === true){
+
         if (store.state.loggedIn === true || sessionStorage.getItem("loggedIn") === "true"){
             console.log("Autenticado")
             next();
@@ -35,12 +36,12 @@ router.beforeEach((to, from, next) => {
         }
     }else{
 
-        if(from.path === "/"){
-            if (store.state.loggedIn === true || sessionStorage.getItem("loggedIn") === "true"){
-                console.log("Autenticado 2")
-                next("/home")
-            }
-        }
+        // if(from.path === "/"){
+        //     if (store.state.loggedIn === true || sessionStorage.getItem("loggedIn") === "true"){
+        //         console.log("Autenticado 2")
+        //         next("/home")
+        //     }
+        // }
 
         next()
     }

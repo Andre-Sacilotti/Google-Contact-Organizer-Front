@@ -26,11 +26,80 @@
     box-shadow: 16px 4px 32px #00000025;
     left: -60vw;
     animation: slideSideBar 0.5s forwards;
+
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none;
 }
 
 .fade-leave-active {
     animation: slideSideBarOut 0.5s forwards;
 }
-.fade-leave-to /* .fade-leave-active em versões anteriores a 2.1.8 */ {
+.fade-leave-to{
     animation: slideSideBarOut 0.5s forwards;
+}
+
+.sidebarlist{
+    list-style: none;
+    padding: 0;
+}
+
+
+.bottomcontent{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    width: 100%;
+    justify-content: start;
+    padding-bottom: 20px;
+}
+
+.icon{
+    padding-right: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.solid{
+    border: 1px solid #00000012;
+    width: calc(60vw *0.9);
+}
+
+.contentItem{
+    display: flex;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    font-weight: 500;
+    font-size: 18px;
+
+}
+
+.contentItem:active{
+    color: rgba(0, 0, 0, 0.6);
+
+}
+
+.topcontent{
+    padding-top: 20px;
+}
+
+
+@media(min-width: 480px){
+    .body{
+        max-width: calc(480px*0.6)
+    }
+
+    .solid{
+        border: 1px solid #00000012;
+        width: calc(480px * 0.6 * 0.9);
+    }
+
+    .contentItemMobileExclusive{
+        display: none;
+    }
 }

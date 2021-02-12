@@ -10,9 +10,15 @@
     padding-top: 1em;
     font-size: 32px;
     font-weight: 500;
-    padding-bottom: calc(30vh - 70px);
+    padding-bottom: 20px;
 
 }
+
+.informationtext{
+    padding-bottom: 20px;
+    padding-bottom: calc(20vh - 70px);
+}
+
 
 .upperlogginbutton{
     width: 100%;

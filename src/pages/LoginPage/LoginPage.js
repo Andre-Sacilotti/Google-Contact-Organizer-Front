@@ -15,6 +15,9 @@ export default {
             console.log(idToken)
             this.$store.commit("login", {token: idToken})
             console.log(this.$store.state)
+            this.$router.push({
+                path: "/home"
+            })
 
         },
         OnGoogleAuthFail(error){

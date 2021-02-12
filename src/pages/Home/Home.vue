@@ -1,4 +1,4 @@
-<template>
+<template src="./Home.html">
 
 </template>
 

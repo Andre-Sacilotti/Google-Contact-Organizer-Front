@@ -1,14 +1,16 @@
-<div v-bind:class="{ navbardiv: !is_login, navbardiv_not_displayed: is_login}">
+<div v-bind:class="{ navbardiv: is_login === 'false', navbardiv_not_displayed: is_login === 'true'}">
 
-    <div v-bind:class="{ hamburgermenu: !is_login, hamburgermenu_not_displayed: is_login}">
+    <div
+            v-bind:class="{ hamburgermenu: is_login === 'false', hamburgermenu_not_displayed: is_login === 'true'}"
+            @click="handlerSideBar">
         <font-awesome-icon icon="bars" size="2x" />
     </div>
 
         <div class ="central-text">
-            Super OrgContact
+            Super OrgContact {{is_login}}
         </div>
 
-    <div v-bind:class="{ profilepic: !is_login, profilepic_not_displayed: is_login}">
+    <div v-bind:class="{ profilepic: is_login === 'false', profilepic_not_displayed: is_login === 'true'}">
 
     </div>
 

@@ -1,4 +1,12 @@
-<div>
-    <Navbar is_login=false />
-    a
+<div class="homebody">
+    <Navbar is_login="false" :handlerSideBar="handlerSideBar" />
+
+
+    <div class = "content">
+        <Sidebar v-if="getShowSideBar"></Sidebar>
+
+
+
+    </div>
+
 </div>

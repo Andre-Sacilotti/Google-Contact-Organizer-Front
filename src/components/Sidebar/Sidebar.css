@@ -1,0 +1,7 @@
+.body{
+    position: absolute;
+    height: calc(100vh - 70px);
+    width: 60vw;
+    background-color: #E9E9E9;
+    box-shadow: 16px 4px 32px #00000025;
+}

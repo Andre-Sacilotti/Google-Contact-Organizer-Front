@@ -1,9 +1,24 @@
 import Navbar from '../../components/Navbar/Navbar.vue'
-
+import Sidebar from "../../components/Sidebar/Sidebar.vue"
 
 export default {
+
     name: 'Home',
-    component: {
-        Navbar
+    components: {
+        Navbar,
+        Sidebar
+    },
+    ready(){
+
+    },
+    computed: {
+        getShowSideBar(){
+            return this.$store.state.showSidebar
+        },
+    },
+    methods: {
+        handlerSideBar(){
+            this.$store.commit("handlerSideBar")
+        }
     }
 }

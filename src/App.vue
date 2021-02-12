@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <LoginPage />
+    <LoginPage>aa</LoginPage>
   </div>
 </template>
 
 <script>
-import LoginPage from "@/pages/LoginPage/LoginPage";
+import LoginPage from "@/pages/LoginPage/LoginPage.vue";
 
 export default {
   name: 'App',

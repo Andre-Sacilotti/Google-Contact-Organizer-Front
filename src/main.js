@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars, faHome, faFilePdf, faChartPie } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faHome, faFilePdf, faChartPie, faEllipsisH } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import GAuth from 'vue-google-oauth2-gapi'
@@ -23,6 +23,7 @@ Vue.use(GAuth, gauthOption)
 Vue.use(VueRouter)
 
 library.add(faBars)
+library.add(faEllipsisH)
 library.add(faHome)
 library.add(faFilePdf)
 library.add(faChartPie)

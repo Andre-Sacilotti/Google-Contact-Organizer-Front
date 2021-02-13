@@ -1,6 +1,6 @@
 <template>
-  <div class ="body">
-    <div class="content">
+  <div class ="content-display-body">
+    <div class="content-display-content">
       <slot/>
     </div>
   </div>
@@ -19,22 +19,24 @@ export default {
 
 <style scoped>
 
-.content {
+.content-display-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
+  max-height: calc(100vh - 70px - 20px);
+  overflow-y: scroll;
+
 }
 
 @media (max-width: 511px){
-  .content{
+  .content-display-content{
     width: calc(100% - 32px);
     background-color: #E9E9E9;
     min-height: calc(100vh - 70px - 32px);
     border-radius: 15px;
   }
 
-  .body{
+  .content-display-body{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,18 +50,16 @@ export default {
 
 
 @media (min-width: 512px){
-  .body{
+  .content-display-body{
     display: flex;
     align-items: center;
     justify-content: center;
-
-
     padding-top: 10px;
     padding-bottom: 5px;
 
   }
 
-  .content{
+  .content-display-content{
     background-color: #E9E9E9;
     height: calc(50vh - 20px);
     max-height: calc(50vh - 35px - 20px);
@@ -67,6 +67,9 @@ export default {
     border-radius: 30px;
 
   }
+
+
+
 }
 
 </style>

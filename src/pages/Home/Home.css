@@ -7,9 +7,17 @@
     min-height: 100vh;
 }
 
+
 @media(max-width: 512px){
     .nonmobileContent{
         display: none;
     }
+
+    .principalContent{
+
+    }
 }
+
+
+
 

@@ -1,15 +1,43 @@
 import ContentDisplay from "@/components/ContentDisplay/ContentDisplay";
 import ContactsGroup from "@/components/ContactsGroup/ContactsGroup.vue";
 import API from "@/services/Axios";
+import Contact from "@/components/Contact/Contact";
 
 
 export default {
     name: 'ContactsDisplay',
     components: {
         ContentDisplay,
-        ContactsGroup
+        ContactsGroup,
+        Contact
     },
+
     methods:{
+
+        handlerFilter: function(e){
+
+
+
+            if (e.target.value === ""){
+                this.auxiliarydata = this.contactsdata
+            }else{
+                console.log("else")
+                const filtered_domains = {}
+
+                for (let prop in this.contactsdata){
+
+                    if(prop.toLowerCase().includes(e.target.value.toLowerCase())){
+                        console.log("filtered")
+                        filtered_domains[prop] = this.contactsdata[prop]
+                    }
+                }
+                this.auxiliarydata = filtered_domains
+            }
+
+
+        console.log(this.auxiliarydata)
+
+        },
 
         addName: function(){
             console.log("teste")
@@ -23,6 +51,7 @@ export default {
                 (response) => {
                     console.log(response.data.contacts)
                     this.contactsdata = response.data.contacts
+                    this.auxiliarydata = this.contactsdata
                 }
             ).catch(error => {
                 console.log(error)
@@ -32,7 +61,9 @@ export default {
     data(){
         return {
             contactsdata: {},
-            loading: true
+            loading: true,
+            filtereddata: {},
+            auxiliarydata: {}
         }
     },
     mounted() {

@@ -11,11 +11,12 @@ export default {
   components: {
   },
   mounted() {
-    if(sessionStorage.getItem("loggedIn") === "true"){
-      this.$store.commit("login", {token: localStorage.getItem("token")})
-    }else{
-      this.$store.commit("logout")
-    }
+  //   if(sessionStorage.getItem("loggedIn") === "true"){
+  //     if(sessionStorage.getItem("expire_token") >)
+  //     this.$store.commit("login", {access_token: sessionStorage.getItem("access_token")})
+  //   }else{
+  //     this.$store.commit("logout")
+  //   }
   }
 }
 </script>

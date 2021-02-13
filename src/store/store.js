@@ -3,26 +3,41 @@ import Vuex from "vuex";
 
 Vue.use(Vuex)
 
+import router from "@/routes/routes";
+
 const store = new Vuex.Store({
     state: {
         loggedIn: false,
-        token: "",
+        accessToken: "",
+        expire_token: 0,
         showSidebar: false
     },
 
     mutations: {
         login(state, payload){
             state.loggedIn = true
-            state.token = payload.token
+            state.accessToken = payload.access_token
+            state.expire_token = payload.expire_token
             sessionStorage.setItem("loggedIn", "true")
-            sessionStorage.setItem("token", payload.token)
+            sessionStorage.setItem("access_token", payload.access_token)
+            sessionStorage.setItem("expire_token", payload.expire_token)
+
+            if (payload.push === true){
+                router.push("/home")
+            }
+            console.log(router)
         },
 
         logout(state){
             state.loggedIn = false
-            state.token = ""
+            state.accessToken = ""
+            state.expire_token = 0
             sessionStorage.setItem("loggedIn", "false")
-            sessionStorage.setItem("token", "")
+            sessionStorage.setItem("access_token", "")
+            sessionStorage.setItem("expire_token", 0)
+
+
+
         },
 
         handlerSideBar(state){

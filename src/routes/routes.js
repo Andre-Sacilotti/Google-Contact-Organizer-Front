@@ -23,35 +23,55 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    console.log(store.state)
-    console.log( sessionStorage.getItem("loggedIn"))
 
-    if (to.meta.need_auth === true){
+      if(sessionStorage.getItem('loggedIn') === "true"){
 
-        if (store.state.loggedIn === true || sessionStorage.getItem("loggedIn") === "true"){
-            console.log("Autenticado")
-            next();
-        }else{
-            next("/");
-        }
-    }else{
+          if(sessionStorage.getItem('expire_token') > Math.round(new Date().getTime())){
 
-        // if(from.path === "/"){
-        //     if (store.state.loggedIn === true || sessionStorage.getItem("loggedIn") === "true"){
-        //         console.log("Autenticado 2")
-        //         next("/home")
-        //     }
-        // }
+              console.log("GT ", sessionStorage.getItem('expire_token') > Math.round(new Date().getTime()))
+              console.log(sessionStorage.getItem('expire_token'))
+              console.log(Math.round(new Date().getTime()))
 
-        next()
-    }
+              store.commit('login', {
+                  access_token: sessionStorage.getItem('access_token'),
+                  expire_token: sessionStorage.getItem('expire_token'),
+              })
 
+              if (to.path === "/"){
+                  // Was logged befored, and the token wasnt expired
+                  console.log('1')
+                  next("/home")
+              }else{
+                  // Was logged befored, and the token wasnt expired
+                  console.log(2)
+                  next()
+
+              }
+
+          }else{
+              // Was logged befored, but the token expired
+              console.log('3')
+              if(to.path !== "/") next("/")
+              else next()
+          }
+
+      }else{
+          // Wasnt logged befored
+          console.log('4')
+          if(to.path === "/"){
+              next()
+          }else{
+              next("/")
+          }
+
+
+      }
 
 
 });
 
-router.afterEach((to, from) => {
-    console.log(to, from)
-})
+// router.afterEach((to, from) => {
+//
+// })
 
 export default router

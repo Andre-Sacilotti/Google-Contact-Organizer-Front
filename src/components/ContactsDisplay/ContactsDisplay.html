@@ -1,10 +1,17 @@
 <ContentDisplay>
-    <div class="singlecontent">
-        <ContactsGroup title="gmail.com"></ContactsGroup>
-    </div>
 
-    <div class="singlecontent">
-        <ContactsGroup title="gmail.com"></ContactsGroup>
-    </div>
+    <template v-for="(item, key) in contactsdata">
+        <div class="singlecontent">
+            <ContactsGroup :title="key">
+
+                <template v-for="item in contactsdata[key]">
+                    {{item['email']}}
+                </template>
+
+            </ContactsGroup>
+            <br>
+        </div>
+    </template>
+
 
 </ContentDisplay>

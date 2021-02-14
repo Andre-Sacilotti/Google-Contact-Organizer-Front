@@ -6,6 +6,26 @@
     font-size: 16px;
 }
 
+.contacts-group-show-button-upper{
+    padding-top: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.contacts-group-show-button{
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 12px;
+    min-width: 160px;
+    height: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 @media(max-width: 512px){
     .contacts-group-body{
         display: flex;
@@ -44,4 +64,15 @@
         box-sizing: border-box;
     }
 
+}
+
+
+.contacts-group-content{
+    max-height: 118px;
+    overflow-y: hidden;
+}
+
+.contacts-group-content-all{
+    max-height: 100%;
+    /*overflow-y: hidden;*/
 }

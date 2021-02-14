@@ -1,8 +1,18 @@
 
 export default {
     name: "ContactsGroup",
-    props: {
-        'title': String
-    },
+    props: [
+        'title',
+        'len'
+        ]
+    ,
+    data: ()=> ({
+        showMore: false
+    }),
+    methods: {
+        handlerShowMore: function(){
+            this.showMore = !this.showMore
+        }
+    }
 
 }

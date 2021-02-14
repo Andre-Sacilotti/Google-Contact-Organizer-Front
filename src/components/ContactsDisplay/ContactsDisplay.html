@@ -1,34 +1,47 @@
 <ContentDisplay>
 
-    <div class="content-display-upper-text">
-        Contacts
-        <div class="contacts-display-filter">
-            <input type="text" v-on:input="handlerFilter" class="contacts-display-input" placeholder="Filter by domain"/>
-        </div>
-        <hr class="horizaon_separator" />
-    </div>
+
 
     <div class="contacts-display-scrollable">
 
-        <template v-for="(item, key) in auxiliarydata">
-            <div class="contacts-display-singlecontent">
-                <ContactsGroup :title="key" class ='contacts-display-group'>
+        <div class="contacts-display-filter">
+            <div class="content-display-upper-text">
+                Contacts
+                <div class="contacts-display-filter">
+                    <input type="text" v-on:input="handlerFilter" class="contacts-display-input" placeholder="Filter by domain"/>
+                </div>
+                <hr class="horizaon_separator" />
+            </div>
+            <br />
+        </div>
 
-                    <div class="singlecontent-content">
-                        <template v-for="item in auxiliarydata[key]">
-                            <Contact :id="item['id']" :email="item['email']" :name="item['name']" :photo_url="item['photo_url']"/>
-                        </template>
+        <div class="contacts-display-grid">
+
+            <template v-for="(item, key) in auxiliarydata">
+                <div class="contacts-display-singlecontent">
+                    <ContactsGroup :len="item.length" :title="key" class ='contacts-display-group'>
+
+                        <div class="singlecontent-content">
+                            <template v-for="item in auxiliarydata[key]">
+                                <Contact :id="item['id']" :email="item['email']" :name="item['name']" :photo_url="item['photo_url']"/>
+                            </template>
+                        </div>
+
+
+                    </ContactsGroup>
+                    <div class="contacts-display-upper-separator">
+                        <hr class="horizaon_separator" />
                     </div>
 
-
-                </ContactsGroup>
-                <div class="contacts-display-upper-separator">
-                    <hr class="horizaon_separator" />
                 </div>
 
-            </div>
+            </template>
 
-    </template>
+        </div>
+
+
+
+
 
 
     </div>

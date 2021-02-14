@@ -7,8 +7,20 @@
 
     </div>
 
-    <div class="contacts-group-content">
+    <div v-bind:class="{'contacts-group-content': showMore===false}" >
         <slot />
     </div>
+
+    <div class="contacts-group-show-button-upper">
+        <div @click="handlerShowMore" v-if="len > 2 && showMore===false" class="contacts-group-show-button">
+            Show More {{len - 2}} Contacts!
+        </div>
+
+        <div @click="handlerShowMore"  v-if="len > 2 && showMore===true" class="contacts-group-show-button">
+            Show Less!
+        </div>
+    </div>
+
+
 
 </div>

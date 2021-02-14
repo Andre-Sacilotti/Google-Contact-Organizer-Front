@@ -3,28 +3,31 @@
 
     <Backdrop :show="showModal" :handler="handlerBackdropClick"/>
     <Modal :id="id" :show="showModal">
+      <Loading :show="showLoading"/>
 
       <div class="modal-profile-photo-upper">
         <div class="modal-profile-photo">
+          <img :src="photo_url" class="modal-contact-photo"/>
         </div>
       </div>
       <div class="modal-profile-name">{{name}}</div>
       <hr class="horizaon_separator" />
       <div class="modal-profile-infos">
-        <div class="modal-profile-infos-address">
-          Address: {{ contactData['address'] }}
+        <div class="modal-profile-infos-address modal-flex">
+          <div class="modal-bold">Address </div> {{ ": " + contactData['address'] }}
         </div>
-        <div class="modal-profile-infos-birthdate">
-          Birthday: {{ contactData['birth_date'] }}
+        <div class="modal-profile-infos-birthdate modal-flex">
+          <div class="modal-bold">Birthday </div> {{": " + contactData['birth_date'] }}
         </div>
-        <div class="modal-profile-infos-organization">
-          Organization: {{ contactData['organization'] }}
+        <div class="modal-profile-infos-organization modal-flex">
+          <div class="modal-bold">Organization </div> {{ ": " +contactData['organization'] }}
         </div>
-        <div class="modal-profile-infos-occupation">
-          Occupation: {{ contactData['occupation'] }}
+        <div class="modal-profile-infos-occupation modal-flex">
+          <div class="modal-bold">Occupation </div> {{ ": " +contactData['occupation'] }}
         </div>
       </div>
-      <div class="modal-profile-buttons"></div>
+      <div class="modal-profile-buttons">
+      </div>
 
     </Modal>
 
@@ -54,12 +57,14 @@
 import Backdrop from "../../components/Backdrop/Backdrop.vue"
 import Modal from "@/components/Modal/Modal.vue";
 import API from "@/services/Axios";
+import Loading from "@/components/Loading/Loading";
 
 export default {
 name: "Contact",
   data: ()=>({
     showModal: false,
-    contactData: {}
+    contactData: {'undefined': true},
+    showLoading: false,
   }),
   props: {
     email: String,
@@ -69,7 +74,8 @@ name: "Contact",
   },
   components: {
     Backdrop,
-    Modal
+    Modal,
+    Loading
   },
   methods: {
 
@@ -81,13 +87,18 @@ name: "Contact",
       this.showModal=true
       console.log("clicked")
       console.log(this.contactData)
-      if(this.contactData === {}){
+
+      if(this.contactData['undefined'] === true){
+        this.showLoading = true
         console.log("Before request")
           API.get(
               "contact/?personId="+this.id+"/",
               { headers: {'authorization-code': this.$store.state.accessToken}}
           ).then(response => {
             this.contactData = response.data
+            this.contactData['undefined'] = false
+            console.log(this.contactData)
+            this.showLoading = false
             console.log(response)
           }).catch(error => {
             console.log(error)
@@ -103,7 +114,7 @@ name: "Contact",
 <style scoped>
 
 
-.modal-profile-photo{
+.modal-profile-photo, .modal-contact-photo{
   background-color: #C4C4C4;
   width: 50px;
   height: 50px;
@@ -115,7 +126,29 @@ name: "Contact",
   border: 1px solid #00000012;
 
   max-width: 280px;
+}
 
+.modal-flex{
+  display: flex;
+  width: 200px;
+}
+
+.modal-bold{
+  font-weight: bold;
+}
+
+.modal-bold:after{
+  content: ' ';
+}
+
+.modal-profile-infos{
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  font-size: 13px;
 }
 
 .modal-profile-name{

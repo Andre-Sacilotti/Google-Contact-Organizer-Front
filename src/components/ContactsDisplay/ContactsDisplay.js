@@ -26,7 +26,7 @@ export default {
 
                 for (let prop in this.contactsdata){
 
-                    if(prop.toLowerCase().includes(e.target.value.toLowerCase())){
+                    if(prop.toLowerCase().includes(e.target.value.toLowerCase().replace("@",""))){
                         console.log("filtered")
                         filtered_domains[prop] = this.contactsdata[prop]
                     }

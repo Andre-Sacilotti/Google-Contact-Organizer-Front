@@ -28,13 +28,10 @@ router.beforeEach((to, from, next) => {
 
           if(sessionStorage.getItem('expire_token') > Math.round(new Date().getTime())){
 
-              console.log("GT ", sessionStorage.getItem('expire_token') > Math.round(new Date().getTime()))
-              console.log(sessionStorage.getItem('expire_token'))
-              console.log(Math.round(new Date().getTime()))
-
               store.commit('login', {
                   access_token: sessionStorage.getItem('access_token'),
                   expire_token: sessionStorage.getItem('expire_token'),
+                  profile_photo: sessionStorage.getItem('profile_photo'),
               })
 
               if (to.path === "/"){

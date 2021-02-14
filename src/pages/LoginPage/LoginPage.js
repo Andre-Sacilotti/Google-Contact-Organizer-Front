@@ -24,6 +24,7 @@ export default {
                 store.commit("login", {
                     access_token: user['uc']['access_token'],
                     expire_token: user['uc']['expires_at'],
+                    profile_photo: user['Es']['vI'],
                     push: true
                 })
 

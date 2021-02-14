@@ -1,5 +1,9 @@
 <template>
   <div class="contact-body">
+
+    <Backdrop :show="showModal" :handler="handlerBackdropClick"/>
+    <Modal :id="id" :show="showModal"/>
+
     <div class="contact-upper-photo">
       <div class="contact-photo">
         <img :src="photo_url" class="contact-photo"/>
@@ -14,7 +18,7 @@
 
     </div>
 
-    <div class="contact-edit-icon">
+    <div class="contact-edit-icon" @click="() => handlerIconClick(id)">
       <font-awesome-icon class="icon" icon="ellipsis-h" size="lg" />
     </div>
 
@@ -22,13 +26,34 @@
 </template>
 
 <script>
+
+import Backdrop from "../../components/Backdrop/Backdrop.vue"
+import Modal from "@/components/Modal/Modal.vue";
+
 export default {
 name: "Contact",
+  data: ()=>({
+    showModal: false
+  }),
   props: {
     email: String,
     name: String,
     photo_url: String,
     id: String
+  },
+  components: {
+    Backdrop,
+    Modal
+  },
+  methods: {
+
+    handlerBackdropClick: function(){
+      console.log("teste")
+      this.showModal = false
+    },
+    handlerIconClick: function(){
+      this.showModal=true
+    }
   }
 }
 </script>
@@ -131,9 +156,17 @@ name: "Contact",
   .contact-content-email{
 
     width: calc(40vw);
-
-
   }
+
+
+}
+
+.contact-edit-icon:hover{
+  color: #adadad;
+}
+
+.contact-edit-icon:active{
+  color: #9a9a9a;
 }
 
 

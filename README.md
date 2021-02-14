@@ -1,4 +1,4 @@
-# desafio_conecta
+# Google Contact Organizer - Frontend
 
 ## Project setup
 ```

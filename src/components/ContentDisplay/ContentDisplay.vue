@@ -61,8 +61,8 @@ export default {
 
   .content-display-content{
     background-color: #E9E9E9;
-    height: calc(50vh - 20px);
-    max-height: calc(50vh - 35px - 20px);
+    height: calc(100vh - 80px);
+    max-height: calc(100vh - 70px - 40px);
     width: calc(100vw - 20px);
     border-radius: 30px;
 

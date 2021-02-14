@@ -2,7 +2,7 @@
   <div v-bind:class="{'disabled-content': show===false, 'Backdrop-body': show===true}">
     <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     <span class="loading-text">
-      Olá, aparentemente a People API está demorando a retornar as resquisções. Peço desculpas pelo transtorno.
+      Olá, a People API está demorando para retornar as resquisções. Peço desculpas pelo transtorno.
     </span>
 
   </div>

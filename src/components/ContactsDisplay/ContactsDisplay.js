@@ -2,6 +2,7 @@ import ContentDisplay from "@/components/ContentDisplay/ContentDisplay";
 import ContactsGroup from "@/components/ContactsGroup/ContactsGroup.vue";
 import API from "@/services/Axios";
 import Contact from "@/components/Contact/Contact";
+import Loading from "@/components/Loading/Loading";
 
 
 export default {
@@ -9,7 +10,8 @@ export default {
     components: {
         ContentDisplay,
         ContactsGroup,
-        Contact
+        Contact,
+        Loading
     },
 
     methods:{
@@ -44,11 +46,14 @@ export default {
         },
 
         getContacts: function(){
+
+            this.showLoading = true
             API.get(
                 'contact/',
                 { headers: {'authorization-code': this.$store.state.accessToken}}
             ).then(
                 (response) => {
+                    this.showLoading = false
                     console.log(response.data.contacts)
                     this.contactsdata = response.data.contacts
                     this.auxiliarydata = this.contactsdata
@@ -63,7 +68,8 @@ export default {
             contactsdata: {},
             loading: true,
             filtereddata: {},
-            auxiliarydata: {}
+            auxiliarydata: {},
+            showLoading: false,
         }
     },
     mounted() {

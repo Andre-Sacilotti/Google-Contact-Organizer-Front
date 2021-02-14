@@ -1,0 +1,11 @@
+.dashboard-chart{
+    width: calc(50vh - 80px);
+    height: calc(50vh - 80px);
+
+}
+
+.dashboard-chart-upper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}

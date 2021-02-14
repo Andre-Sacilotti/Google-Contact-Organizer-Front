@@ -1,11 +1,16 @@
 import VueRouter from 'vue-router';
 import LoginPage from "@/pages/LoginPage/LoginPage.vue";
 import Home from "@/pages/Home/Home.vue"
+import DashboardPage from  "@/pages/DashboardPage/DashboardPage.vue"
 
 import store from "@/store/store.js"
 
 
 const routes = [
+
+    {
+        path: "/dashboard", component: DashboardPage, exact: true, meta:{need_auth: true}
+    },
 
     {
         path: "/home", component: Home, exact: true, meta:{need_auth: true}

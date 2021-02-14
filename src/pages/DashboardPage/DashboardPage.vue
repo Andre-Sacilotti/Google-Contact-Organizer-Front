@@ -1,13 +1,5 @@
-<template>
+<template src="./DashboardPage.html"></template>
 
-</template>
+<script src="./DashboardPage.js"></script>
 
-<script>
-export default {
-name: "DashboardPage"
-}
-</script>
-
-<style scoped>
-
-</style>
+<style scoped src="./DashboardPage.css"></style>

@@ -54,7 +54,7 @@
 
 
 .profilepic_not_displayed{
-
+    display: none;
 }
 
 .icon:active{

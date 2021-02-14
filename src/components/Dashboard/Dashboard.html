@@ -1,5 +1,8 @@
 <ContentDisplay>
     <div class="dashboard-chart-upper">
-            <pie-chart  class="dashboard-chart" :data="chartData" :options="chartOptions"></pie-chart>
+        <div class="chart-group">
+            <pie-chart  class="dashboard-chart" :data="charts['per_domain']['data']" :options="charts['per_domain']['option']"></pie-chart>
+        </div>
+
     </div>
 </ContentDisplay>

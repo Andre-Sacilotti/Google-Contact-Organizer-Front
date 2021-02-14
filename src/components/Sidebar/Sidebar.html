@@ -4,7 +4,7 @@
 
             <ul class="sidebarlist">
                 <li>
-                    <div class="contentItem">
+                    <div @click="() => handlerClick('home')" class="contentItem">
                         <div class="icon">
                             <font-awesome-icon class="icon" icon="home" />
                         </div>
@@ -12,7 +12,7 @@
                     </div>
                 </li>
                 <li class="contentItemMobileExclusive">
-                    <div class="contentItemMobileExclusive contentItem">
+                    <div @click="() => handlerClick('dashboard')" class=" contentItemMobileExclusive contentItem">
                         <div class="icon">
                             <font-awesome-icon class="icon" icon="chart-pie" />
                         </div>
@@ -20,7 +20,7 @@
                     </div>
                 </li>
                 <li>
-                    <div class="contentItem">
+                    <div @click="() => handlerClick('report')" class="contentItem">
 
                         <div class="icon">
                             <font-awesome-icon class="icon" icon="file-pdf" />
@@ -37,8 +37,6 @@
         <div class="bottomcontent">
             <hr class="solid" />
             <div class="contentItem">
-
-
                 <div class="icon">
                     <font-awesome-icon class="icon" icon="bars" />
                 </div>

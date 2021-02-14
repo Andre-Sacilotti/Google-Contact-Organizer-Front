@@ -1,10 +1,6 @@
 <template>
   <div v-bind:class="{'disabled-content': show===false, 'Backdrop-body': show===true}">
     <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-    <span class="loading-text">
-      Olá, a People API está demorando para retornar as resquisções. Peço desculpas pelo transtorno.
-    </span>
-
   </div>
 </template>
 

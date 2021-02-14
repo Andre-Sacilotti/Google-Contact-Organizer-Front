@@ -2,7 +2,31 @@
   <div class="contact-body">
 
     <Backdrop :show="showModal" :handler="handlerBackdropClick"/>
-    <Modal :id="id" :show="showModal"/>
+    <Modal :id="id" :show="showModal">
+
+      <div class="modal-profile-photo-upper">
+        <div class="modal-profile-photo">
+        </div>
+      </div>
+      <div class="modal-profile-name">{{name}}</div>
+      <hr class="horizaon_separator" />
+      <div class="modal-profile-infos">
+        <div class="modal-profile-infos-address">
+          Address: {{ contactData['address'] }}
+        </div>
+        <div class="modal-profile-infos-birthdate">
+          Birthday: {{ contactData['birth_date'] }}
+        </div>
+        <div class="modal-profile-infos-organization">
+          Organization: {{ contactData['organization'] }}
+        </div>
+        <div class="modal-profile-infos-occupation">
+          Occupation: {{ contactData['occupation'] }}
+        </div>
+      </div>
+      <div class="modal-profile-buttons"></div>
+
+    </Modal>
 
     <div class="contact-upper-photo">
       <div class="contact-photo">
@@ -29,11 +53,13 @@
 
 import Backdrop from "../../components/Backdrop/Backdrop.vue"
 import Modal from "@/components/Modal/Modal.vue";
+import API from "@/services/Axios";
 
 export default {
 name: "Contact",
   data: ()=>({
-    showModal: false
+    showModal: false,
+    contactData: {}
   }),
   props: {
     email: String,
@@ -48,17 +74,58 @@ name: "Contact",
   methods: {
 
     handlerBackdropClick: function(){
-      console.log("teste")
       this.showModal = false
+
     },
     handlerIconClick: function(){
       this.showModal=true
+      console.log("clicked")
+      console.log(this.contactData)
+      if(this.contactData === {}){
+        console.log("Before request")
+          API.get(
+              "contact/?personId="+this.id+"/",
+              { headers: {'authorization-code': this.$store.state.accessToken}}
+          ).then(response => {
+            this.contactData = response.data
+            console.log(response)
+          }).catch(error => {
+            console.log(error)
+          })
+      }else{
+        console.log("jumped request")
+      }
     }
   }
 }
 </script>
 
 <style scoped>
+
+
+.modal-profile-photo{
+  background-color: #C4C4C4;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.horizaon_separator{
+  width: 70%;
+  border: 1px solid #00000012;
+
+  max-width: 280px;
+
+}
+
+.modal-profile-name{
+  padding-top: 20px;
+}
+
+
+.modal-profile-photo-upper{
+  padding-top: 20px;
+}
 
 .upper-contact-content-name{
   display: flex;

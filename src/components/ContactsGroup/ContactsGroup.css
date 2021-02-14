@@ -39,12 +39,15 @@
 
 .contacts-group-title-upper{
     box-sizing: border-box;
-    width: 85vw;
+    width: 75vw;
 }
 
 .contacts-group-title{
     display: block;
     text-align: start;
+
+    font-size: 15px;
+    font-weight: 600;
 
     white-space: nowrap;
     overflow: hidden;

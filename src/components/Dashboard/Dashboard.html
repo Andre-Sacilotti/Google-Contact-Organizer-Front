@@ -1,8 +1,24 @@
 <ContentDisplay>
-    <div class="dashboard-chart-upper">
-        <div class="chart-group">
-            <pie-chart  class="dashboard-chart" :data="charts['per_domain']['data']" :options="charts['per_domain']['option']"></pie-chart>
-        </div>
+    <div class="dashboard-dropdown-upper">
+        Select the Chart Type
+        <div class="dashboard-dropdown">
 
+            <v-select :options="items" @input="setSelected"></v-select>
+        </div>
     </div>
+    <div class="dashboard-chart-upper-upper">
+
+        <div class="dashboard-chart-upper">
+
+            <div class="chart-group" >
+                <pie-chart  v-show="show === 'Domain'" class="dashboard-chart" :chartData="charts['per_domain']['data']" :chartOptions="charts['per_domain']['option']"></pie-chart>
+                <pie-chart v-show="show === 'Organization'" class="dashboard-chart" :chartData="charts['per_organization']['data']" :chartOptions="charts['per_organization']['option']"></pie-chart>
+                <pie-chart v-show="show === 'City'" class="dashboard-chart" :chartData="charts['per_city']['data']" :chartOptions="charts['per_city']['option']"></pie-chart>
+                <pie-chart v-show="show === 'Job Title'"  class="dashboard-chart" :chartData="charts['per_jobtitle']['data']" :chartOptions="charts['per_jobtitle']['option']"></pie-chart>
+            </div>
+<!--            <div v-else></div>-->
+
+        </div>
+    </div>
+
 </ContentDisplay>

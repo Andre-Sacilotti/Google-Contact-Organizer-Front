@@ -22,10 +22,12 @@ export default {
             this.$gAuth.signIn(function (user) {
                 //on success
                 console.log(user)
+                console.log(user['Es']['JR'])
                 store.commit("login", {
                     access_token: user['uc']['access_token'],
                     expire_token: user['uc']['expires_at'],
                     profile_photo: user['Es']['vI'],
+                    user_id: user['Es']['JR'],
                     push: true
                 })
 

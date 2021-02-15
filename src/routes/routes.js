@@ -37,6 +37,7 @@ router.beforeEach((to, from, next) => {
                   access_token: sessionStorage.getItem('access_token'),
                   expire_token: sessionStorage.getItem('expire_token'),
                   profile_photo: sessionStorage.getItem('profile_photo'),
+                  user_id: sessionStorage.getItem('user_id'),
               })
 
               if (to.path === "/"){

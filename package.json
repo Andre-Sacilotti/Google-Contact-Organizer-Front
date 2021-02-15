@@ -21,6 +21,7 @@
     "vue-google-signin-button-directive": "^1.0.3",
     "vue-icon": "^2.1.2",
     "vue-router": "^3.5.1",
+    "vue-select": "^3.11.2",
     "vue-styled-components": "^1.6.0",
     "vuex": "^3.6.2"
   },

@@ -1,19 +1,20 @@
-import { Doughnut } from "vue-chartjs";
+import { Doughnut, mixins } from "vue-chartjs";
 
 export default {
     extends: Doughnut,
     name: 'PieChart',
+    mixins: [mixins.reactiveProp],
     props: {
-            "data": {
+            "chartData": {
                 type: Object,
                 default: null
             },
-            "options":{
+            "chartOptions":{
                 type: Object,
                 default: null
             }
             },
     mounted() {
-        this.renderChart(this.data, this.options);
+        this.renderChart(this.chartData, this.chartOptions);
     }
 };

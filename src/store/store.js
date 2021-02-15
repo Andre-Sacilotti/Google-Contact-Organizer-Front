@@ -17,7 +17,6 @@ const store = new Vuex.Store({
 
     mutations: {
         login(state, payload){
-            console.log("Payload", payload)
             state.loggedIn = true
             state.accessToken = payload.access_token
             state.expire_token = payload.expire_token
@@ -32,7 +31,6 @@ const store = new Vuex.Store({
             if (payload.push === true){
                 router.push("/home")
             }
-            console.log(router)
         },
 
         logout(state){

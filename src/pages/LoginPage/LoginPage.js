@@ -7,13 +7,17 @@ export default {
     name: "LoginPage",
     components: {
         Navbar,
-        ContentDisplay
+        ContentDisplay,
+
     },
     data : () => (
         {
-            clientId: process.env.VUE_APP_CLIENT_ID
+            clientId: process.env.VUE_APP_CLIENT_ID,
         }
     ),
+    mounted () {
+        this.showLoading = false;
+    },
     methods: {
         handlerMenu(){
 
@@ -21,8 +25,6 @@ export default {
         handlerGoogleButton(){
             this.$gAuth.signIn(function (user) {
                 //on success
-                console.log(user)
-                console.log(user['Es']['JR'])
                 store.commit("login", {
                     access_token: user['uc']['access_token'],
                     expire_token: user['uc']['expires_at'],

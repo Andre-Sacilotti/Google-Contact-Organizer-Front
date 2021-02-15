@@ -22,15 +22,10 @@ export default {
         ContentDisplay,
         PieChart,
     },
-    onload: function(){
-        console.log("loading")
-    },
     methods: {
         setSelected(value){
             this.show = value
             this.$forceUpdate()
-
-
         }
         },
     props: [
@@ -42,7 +37,7 @@ export default {
     data: function (){
         return {
             items: ['Organization', 'Job Title', 'Domain', 'City'],
-            show: 'domain',
+            show: '',
             'charts': {
                 'per_domain':{
                                 option: {

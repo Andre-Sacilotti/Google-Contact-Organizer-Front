@@ -42,25 +42,21 @@ router.beforeEach((to, from, next) => {
 
               if (to.path === "/"){
                   // Was logged befored, and the token wasnt expired
-                  console.log('1')
                   next("/home")
               }else{
                   // Was logged befored, and the token wasnt expired
-                  console.log(2)
                   next()
 
               }
 
           }else{
               // Was logged befored, but the token expired
-              console.log('3')
               if(to.path !== "/") next("/")
               else next()
           }
 
       }else{
           // Wasnt logged befored
-          console.log('4')
           if(to.path === "/"){
               next()
           }else{

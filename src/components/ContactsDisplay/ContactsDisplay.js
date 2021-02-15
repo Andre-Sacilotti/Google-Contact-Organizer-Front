@@ -23,26 +23,20 @@ export default {
             if (e.target.value === ""){
                 this.auxiliarydata = this.contactsdata
             }else{
-                console.log("else")
                 const filtered_domains = {}
 
                 for (let prop in this.contactsdata){
 
                     if(prop.toLowerCase().includes(e.target.value.toLowerCase().replace("@",""))){
-                        console.log("filtered")
                         filtered_domains[prop] = this.contactsdata[prop]
                     }
                 }
                 this.auxiliarydata = filtered_domains
             }
 
-
-        console.log(this.auxiliarydata)
-
         },
 
         addName: function(){
-            console.log("teste")
         },
 
         getContacts: function(){
@@ -54,7 +48,6 @@ export default {
             ).then(
                 (response) => {
                     this.showLoading = false
-                    console.log(response.data.contacts)
                     this.contactsdata = response.data.contacts
                     this.auxiliarydata = this.contactsdata
                 }
@@ -73,8 +66,6 @@ export default {
         }
     },
     mounted() {
-        console.log('mounted hook has been called');
-        console.log(this.contactsdata)
         this.getContacts()
     }
 }

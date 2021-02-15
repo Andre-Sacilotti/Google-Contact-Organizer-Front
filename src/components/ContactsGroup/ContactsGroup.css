@@ -73,6 +73,7 @@
 .contacts-group-content{
     max-height: 118px;
     overflow-y: hidden;
+    width: 100%;
 }
 
 .contacts-group-content-all{

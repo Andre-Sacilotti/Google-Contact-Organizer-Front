@@ -18,21 +18,20 @@ export default {
         Loading
     },
     data: () => ({
-        userStatistics: {},
+        userStatistics: {'not_loaded': true},
         showLoading: false,
-        showChart: 'domain',
+        showChart: '',
         items: ['organization', 'job', 'domain', 'city'],
-        showMenu: false
+        notLoaded: true
     }),
     beforeCreate(){
-        console.log("user?userId="+this.$store.state.user_id)
         this.Loading = true
         API.get(
             "user?userId="+this.$store.state.user_id + "&toChart=true",
             ).then(response => {
-                console.log(response)
                 this.userStatistics = {...response.data}
                 this.Loading = false
+            this.notLoaded = false
         }).catch(error => {
             console.log(error)
         })

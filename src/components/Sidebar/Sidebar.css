@@ -88,6 +88,10 @@
     padding-top: 20px;
 }
 
+.body{
+    z-index: 100000;
+}
+
 
 @media(min-width: 512px){
     .body{

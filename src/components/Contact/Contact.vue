@@ -85,21 +85,16 @@ name: "Contact",
     },
     handlerIconClick: function(){
       this.showModal=true
-      console.log("clicked")
-      console.log(this.contactData)
 
       if(this.contactData['undefined'] === true){
         this.showLoading = true
-        console.log("Before request")
           API.get(
               "contact/?personId="+this.id+"/",
               { headers: {'authorization-code': this.$store.state.accessToken}}
           ).then(response => {
             this.contactData = response.data
             this.contactData['undefined'] = false
-            console.log(this.contactData)
             this.showLoading = false
-            console.log(response)
           }).catch(error => {
             console.log(error)
           })
@@ -238,7 +233,7 @@ name: "Contact",
   background-color: #FDFDFD;
   box-sizing: border-box;
 
-  box-shadow: 8px 8px 12px #00000025
+  box-shadow: 4px 4px 16px #00000025
 }
 
 @media(max-width: 390px){

@@ -14,6 +14,13 @@ import 'vue-select/dist/vue-select.css';
 import store from "./store/store.js"
 import router from "./routes/routes.js"
 
+import Toasted from 'vue-toasted';
+
+Vue.use(Toasted)
+
+Vue.use(Toasted, {
+  position: 'top-center', duration: 2000, keepOnHover: true,  theme: "outline",
+})
 
 const gauthOption = {
   clientId: process.env.VUE_APP_CLIENT_ID + ".apps.googleusercontent.com",

@@ -23,34 +23,45 @@ export default {
 
         },
         handlerGoogleButton(){
-            this.$gAuth.signIn(function (user) {
-                //on success
-                store.commit("login", {
-                    access_token: user['uc']['access_token'],
-                    expire_token: user['uc']['expires_at'],
-                    profile_photo: user['Es']['vI'],
-                    user_id: user['Es']['JR'],
-                    push: true
-                })
 
-                API.put(
-                    "user/",
-                    {
-                        'user_id': user['Es']['JR'],
-                        'user_name': user['Es']['sd'],
-                    },
-                    {headers: {'authorization-code': user['uc']['access_token']}}
-                ).then(response=>{
-                    console.log(response)
-                    
-                }).catch(error=>{
+            try{
+                this.$gAuth.signIn(function (user) {
+                    //on success
+                    store.commit("login", {
+                        access_token: user['uc']['access_token'],
+                        expire_token: user['uc']['expires_at'],
+                        profile_photo: user['Es']['vI'],
+                        user_id: user['Es']['JR'],
+                        push: true
+                    })
+
+                    API.put(
+                        "user/",
+                        {
+                            'user_id': user['Es']['JR'],
+                            'user_name': user['Es']['sd'],
+                        },
+                        {headers: {'authorization-code': user['uc']['access_token']}}
+                    ).then(response=>{
+                        console.log(response)
+
+                    }).catch(error=>{
+                        console.log(error)
+                    })
+
+
+                }, function (error) {
                     console.log(error)
                 })
+            }catch{
+                this.$toasted.error("Erro ao carregar popup de login. Tente novamente.", {
+                    theme: "bubble",
+                    position: "top-center",
+                    duration : 2000
+                });
 
+            }
 
-            }, function (error) {
-                console.log(error)
-            })
         }
     }
 

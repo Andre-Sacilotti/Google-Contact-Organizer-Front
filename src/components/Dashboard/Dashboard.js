@@ -23,20 +23,36 @@ export default {
         PieChart,
     },
     methods: {
+
         setSelected(value){
             this.show = value
+            console.log(this.per_domain_label)
             this.$forceUpdate()
         }
         },
     props: [
-        'per_domain_label', 'per_domain_data',
-        'per_organization_label', 'per_organization_data',
-        'per_city_label', 'per_city_data',
-        'per_jobtitle_label', 'per_jobtitle_data'
+        'per_domain_data',
+    'per_domain_label',
+
+    'per_city_data',
+    'per_city_label',
+
+    'per_organization_data',
+    'per_organization_label',
+
+    'per_jobtitle_data',
+    'per_jobtitle_label',
     ],
+    created(){
+
+
+    },
+
     data: function (){
         return {
+            userStatistics: null,
             items: ['Organization', 'Job Title', 'Domain', 'City'],
+
             show: '',
             'charts': {
                 'per_domain':{

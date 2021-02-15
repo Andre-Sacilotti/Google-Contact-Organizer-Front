@@ -52,6 +52,12 @@ export default {
                     this.auxiliarydata = this.contactsdata
                 }
             ).catch(error => {
+                this.showLoading = false
+                this.$toasted.error("Não há Usuarios nessa conta!", {
+                    theme: "bubble",
+                    position: "top-center",
+                    duration : 2000
+                });
                 console.log(error)
             })
         }

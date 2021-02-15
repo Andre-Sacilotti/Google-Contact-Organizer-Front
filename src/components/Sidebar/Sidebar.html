@@ -20,7 +20,7 @@
                     </div>
                 </li>
                 <li>
-                    <div @click="() => handlerClick('report')" class="contentItem">
+                    <div @click.prevent="() => handlerReportGenerator()" class="contentItem">
 
                         <div class="icon">
                             <font-awesome-icon class="icon" icon="file-pdf" />

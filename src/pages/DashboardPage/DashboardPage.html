@@ -9,21 +9,22 @@
     <div class = "content">
 
         <Sidebar :show="getShowSideBar"></Sidebar>
-        <div class="principalContent">
+            <div class="principalContent">
 
-        <Dashboard v-if="showLoading === false"
-            :per_domain_data="userStatistics['domain']['data']"
-            :per_domain_label="userStatistics['domain']['label']"
+        <Dashboard
+                :key="componentKey"
+                :per_domain_data="per_domain_data"
+                :per_domain_label="per_domain_label"
 
-            :per_city_data="userStatistics['city']['data']"
-            :per_city_label="userStatistics['city']['label']"
+                :per_city_data="per_city_data"
+                :per_city_label="per_city_label"
 
-            :per_organization_data="userStatistics['organization']['data']"
-            :per_organization_label="userStatistics['organization']['label']"
+                :per_organization_data="per_organization_data"
+                :per_organization_label="per_organization_label"
 
-            :per_jobtitle_data="userStatistics['jobtitle']['data']"
-            :per_jobtitle_label="userStatistics['jobtitle']['label']"
-        ></Dashboard>
+                :per_jobtitle_data="per_jobtitle_data"
+                :per_jobtitle_label="per_jobtitle_label">
+        </Dashboard>
 
         </div>
 
